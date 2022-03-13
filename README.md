@@ -5,7 +5,7 @@ Memory Wabwile<br>
 https://github.com/Memory-Wabwile
 
 ## Description
-Password Locker is an appliaction that enables users to login to the system and save their credentials including usernames and passwords for their various accounts including social media platforms.
+Blogs is an application where writers can create blogs and users can view this blogs and comment on them.
 
 ## BDD
 1. A user is able to view the blog posts on the site
