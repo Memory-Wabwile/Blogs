@@ -91,52 +91,10 @@ class Comment(db.Model):
     def __repr__(self):
         return f'{self.comment}'
 
+class Quotes:
+    def __init__(self , author,quote):
 
-class Upvote(db.Model):
-    __tablename__='upvotes'
-
-    id = db.Column(db.Integer,primary_key = True)
-    upvote = db.Column(db.Integer)
-    name = db.Column(db.Integer , db.ForeignKey('users.id'))
-    blog_id = db.Column(db.Integer,db.ForeignKey('blog.id'))
-
-    def save_upvote(self):
-        db.session.add(self)
-        db.session.commit()
-
-    def delete_upvote(self):
-        db.session.add(self)
-        db.session.commit()
-
-    @classmethod
-    def get_upvotes(cls, id):
-        upvote = Upvote.query.filter_by(blog_id=id).all()
-        return upvote
-
-    def __repr__(self):
-         return f'{self.user_id}:{self.post_id}'
-
-
-class Downvote(db.Model):
-    __tablename__='downvotes'
-
-    id = db.Column(db.Integer,primary_key = True)
-    downvote = db.Column(db.Integer)
-    name = db.Column(db.Integer , db.ForeignKey('users.id'))
-    blog_id = db.Column(db.Integer,db.ForeignKey('blog.id'))
-
-    def save_downvote(self):
-        db.session.add(self)
-        db.session.commit()
-
-    def delete_downvote(self):
-        db.session.add(self)
-        db.session.commit()
-
-    @classmethod
-    def get_downvotes(cls, id):
-        downvote = Downvote.query.filter_by(blog_id=id).all()
-        return downvote
-
-    def __repr__(self):
-        return f'downvote : {self.downvote}'
+        self.id =id
+        self.author = author
+        self.quote = quote
+    
