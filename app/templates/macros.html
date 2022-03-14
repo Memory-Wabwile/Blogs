@@ -1,7 +1,5 @@
 {%macro display(blog)%}
 
-
-{%for blogs in blog%}
 <div class="card" style="position: relative">
     <div class="card-header">
         <div class="card-title">
@@ -9,10 +7,12 @@
         </div>
     </div>
     <div class="card-body">
-        <h2 class="quoted-author">{{ quote.author }}</h2>
-        <p class="quoted-quote">{{ quote.quote }}</p>
+        <h2 class="author">{{ quote.author }}</h2>
+        <p class="quote">{{ quote.quote }}</p>
     </div>
 </div>
+{%for blogs in blog%}
+
 
 <div style="background-color: black;  padding-top: 10%;">
     <div class="row">
