@@ -28,7 +28,7 @@ def login():
         
         # return redirect(url_for('main.index'))    
 
-    title = "pitches login"
+    title = "blogs login"
     return render_template('auth/login.html', login_form = login_form,title=title )
 
 @auth.route('/logout')
@@ -45,7 +45,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         # title="New Account"
-        # mail_message("Welcome to Pitches-Platform","email/welcome_user",user.email,user=user)
+        # mail_message("Welcome to Blogs","email/welcome_user",user.email,user=user)
 
         return redirect(url_for('auth.login'))
         

@@ -9,7 +9,7 @@ class UpdateProfile(FlaskForm):
 
 class PostForm(FlaskForm):
   title = StringField(' title:',validators=[DataRequired()]) 
-  pitches = StringField(' post:',validators=[DataRequired()]) 
+  blogs = StringField(' post:',validators=[DataRequired()]) 
   username= StringField(' username:',validators=[DataRequired()])
   category = SelectField("Choose category:",choices=[('Interview','Interview'),('Promotions','Promotions'),('Products','Products'),('PickupLines','PickupLines'),('Sports','Sports'),('Entertainment','Entertainment')])
 
@@ -19,9 +19,9 @@ class CommentForm(FlaskForm):
   comment = TextAreaField(' Comment:',validators=[DataRequired()])
   submit = SubmitField('Submit') 
 
-class PitchForm(FlaskForm):
+class BlogForm(FlaskForm):
     title = StringField('Your Name', validators=[DataRequired()])
     category = SelectField('Category', choices=[('Interview','Interview'),('Promotion','Promotion'),('PickupLines','PickupLines'),('Products','Products'),('Sports','Sports'),('Entertainment','Entertainment')],validators=[DataRequired()])
-    pitch = TextAreaField('Your Pitch', validators=[DataRequired()])
+    blog = TextAreaField('Your Blog', validators=[DataRequired()])
     
     submit = SubmitField('Submit')

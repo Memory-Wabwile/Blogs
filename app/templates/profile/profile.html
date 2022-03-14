@@ -55,11 +55,11 @@
     <div class="container">
         <div>
             {% if user == current_user %}
-            {% for pitches in pitch %}
-            <p> {{pitches.category}}</p>
-            <p> {{pitches.title}} </p>
+            {% for blogs in blog %}
+            <p> {{blogs.category}}</p>
+            <p> {{blogs.title}} </p>
 
-            <p> {{pitches.pitch}}</p>
+            <p> {{blogs.blog}}</p>
              {% endfor %}
             {%endif%}
         </div>
