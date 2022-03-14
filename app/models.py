@@ -83,16 +83,21 @@ class Comment(db.Model):
         db.session.commit()
 
     def delete_comment(self):
-        db.session.add(self)
+        db.session.delete(self)
         db.session.commit()
+
+    def get_comment(id):
+        comment= Comment.query.filter_by(id=id).all()
+        return comment
 
     def __repr__(self):
         return f'{self.comment}'
 
+
 class Quotes:
     def __init__(self , author,quote):
 
-        self.id =id
+        # self.id =id
         self.author = author
         self.quote = quote
     

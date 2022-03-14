@@ -7,7 +7,7 @@ from .forms import UpdateProfile
 from .. import db,photos
 from .forms import PostForm,CommentForm,UpdateProfile,BlogForm
 from flask.helpers import flash
-from app.requests import get_quote
+from ..requests import get_quote
 
 
 

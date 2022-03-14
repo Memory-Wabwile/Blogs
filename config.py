@@ -15,7 +15,7 @@ class Config:
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
 
-    QUOTE_API_BASE_URL = 'http://quotes.stormconsultancy.co.uk/random.json'
+    # QUOTE_API_BASE_URL = 'http://quotes.stormconsultancy.co.uk/random.json'
 
 
 class ProdConfig(Config):

@@ -6,6 +6,18 @@
 {% block content %}
 <h1 style="text-align: center; font-weight: bolder; " >BLOGS</h1><hr >
 
+<div class="card" style="position: relative">
+    <div class="card-header">
+        <div class="card-title">
+            <h2>Quote of the day..</h2>
+        </div>
+    </div>
+    <div class="card-body">
+        <h2 class="author">{{quote.author}}</h2>
+        <p class="quote">{{quote.quote}}</p>
+    </div>
+</div>
+
 <div  class="container-row">
     {{macro.display(blog)}}
 </div>
