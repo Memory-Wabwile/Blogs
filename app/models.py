@@ -51,9 +51,7 @@ class Blogs(db.Model):
     time = db.Column(db.DateTime,default = datetime.utcnow)
     name = db.Column(db.Integer , db.ForeignKey('users.id'))
     comment = db.relationship('Comment' , backref='blogs' , lazy='dynamic')
-    upvote = db.relationship('Upvote' ,backref='blogs', lazy='dynamic' )
-    downvote = db.relationship('Downvote' , backref='blogs' , lazy='dynamic')
-
+    
 
     @classmethod
     def get_blogs(cls, category):

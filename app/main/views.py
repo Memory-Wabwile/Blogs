@@ -1,6 +1,6 @@
 from flask import render_template,request,redirect,url_for,abort
 from ..models import User
-from ..models import User, Blogs,Comment,Upvote,Downvote
+from ..models import User, Blogs,Comment
 from . import main
 from flask_login import current_user, login_required 
 from .forms import UpdateProfile
@@ -111,8 +111,6 @@ def comment(blog_id):
     form = CommentForm()
 
     
-   
-
     if form.validate_on_submit():
         comment = form.comment.data
         blog_id = blog_id
@@ -132,55 +130,3 @@ def comment(blog_id):
         
 
 
-@main.route('/like/<int:id>', methods=['POST', 'GET'])
-@login_required
-def upvote(id):
-    post = Blogs.query.get(id)
-    if post is None:
-        abort(404)
-        
-    upvote= Upvote.query.filter_by(user_id=current_user.id, blog_id=id).first()
-    if upvote is not None:
-        
-        db.session.delete(upvote)
-        db.session.commit()
-        
-        return redirect(url_for('main.index'))
-    
-    new_like = Upvote(
-        user_id=current_user.id,
-        blog_id=id
-        
-    )
-    db.session.add(new_like)
-    db.session.commit()
-
-        
-    return redirect(url_for('main.index'))
-
-@main.route('/dislike/<int:id>', methods=['POST', 'GET'])
-@login_required
-def downvote(id):
-    post = Blogs.query.get(id)
-    if post is None:
-        abort(404)
-        
-    downvote= Downvote.query.filter_by(user_id=current_user.id, blog_id=id).first()
-    if downvote is not None:
-        
-        db.session.delete(downvote)
-        db.session.commit()
-        
-        return redirect(url_for('main.index'))
-    
-    new_like = Downvote(
-        user_id=current_user.id,
-        blog_id=id
-        
-    )
-    # new_like.save()
-    db.session.add(new_like)
-    db.session.commit()
-
-        
-    return redirect(url_for('main.index'))
