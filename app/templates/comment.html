@@ -10,13 +10,13 @@
 
 
         <div style="padding-right: 5%;" class="col-md-6 ">
-            <div style="margin-top:6% ; padding:5% 5% 5% 5%; font-size: 25px; margin-left: 15%; text-align: center; border: 3px solid fuchsia;box-shadow: 10px 10px 15px fuchsia; background-color: gray;"
+            <div style="width: 75%; margin-top:6% ; padding:5% 5% 5% 5%; font-size: 25px; margin-left: 15%; text-align: center; border: 3px solid gray ;box-shadow: 10px 10px 15px gray; background-color: gainsboro;"
                 class="card">
                 {{ wtf.quick_form(form) }}
             </div>
 
         </div>
-        <div style="font-size: 1.5em; margin-top: 1%; padding-right: 5%;" class="col-md-6">
+        <div style="font-size: 1.5em; margin-top: 1%; padding-right: 7%; padding-left: 3%;" class="col-md-6">
             <div class="row">
                 <h1>ALL COMMENTS</h1>
 
@@ -27,8 +27,8 @@
                         <h5 class="card-title"></h5>
                         <p class="card-text"><em>{{comment.name.username}}</em></p>
                         <p class="card-text">{{comment.comment}}</p>
-                        <a href="{{url_for('main.delete_comment', id = comment.id)}}"
-                            class="btn text-white btn-danger"> 🚮 Delete
+                        <a href="{{url_for('main.delete_comment', blog_id = comment.id)}}" style="background-color: #FAD;"
+                            class="btn text-white "> 🚮 Delete
                         </a>
                     </div>
                 </div>

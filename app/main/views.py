@@ -142,17 +142,17 @@ def delete_post(blog_id):
     blog.delete()
     return redirect(url_for('main.index'))
 
-@main.route("/delete/<int:id>", methods = ['GET','POST'])
+@main.route("/delete/<int:blog_id>", methods = ['GET','POST'])
 @login_required
-def delete_comment(id):
-    blog = Blogs.query.filter_by(id = id).first()
-    comment = Comment.query.filter_by(id = id).first()
+def delete_comment(blog_id):
+    blog = Blogs.query.filter_by(id=blog_id).first()
+    comment = Comment.query.filter_by(id=blog_id).first()
     db.session.delete(comment)
     db.session.commit()
-    return redirect(url_for('.comment',id = blog.id))
+    return redirect(url_for('.comment',blog_id = blog_id))
 
 
-@main.route('/subscribe',methods = ['POST','GET'])
+@main.route('/subscribe', methods = ['POST','GET'])
 def subscribe():
 
     form = SubscribeForm
@@ -161,7 +161,7 @@ def subscribe():
         email = request.form.get('subscriber')
         new_subscriber = Subscriber(email = email)
         new_subscriber.save_subscriber()
-        mail_message("Subscribed to Personal Blogs","email/welcome_subscriber",new_subscriber.email,new_subscriber=new_subscriber)
+        mail_message(" You have Successfully subscribed to the blogs app ! welcome 😇 ","email/welcome_subscriber" , new_subscriber.email,new_subscriber=new_subscriber)
         flash('You have successfully subscribed to blogs')
         return redirect(url_for('main.index'))
     

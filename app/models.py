@@ -78,17 +78,20 @@ class Comment(db.Model):
     name = db.Column(db.Integer , db.ForeignKey('users.id'))
     blog_id = db.Column(db.Integer,db.ForeignKey('blog.id'),nullable = False)
 
+    @classmethod
+    def get_comment(id):
+        comment= Comment.query.filter_by(id=id).all()
+        return comment
+
     def save_comment(self):
         db.session.add(self)
         db.session.commit()
 
-    def delete_comment(self):
-        db.session.delete(self)
-        db.session.commit()
+    # def delete_comment(self):
+    #     db.session.add(self)
+    #     db.session.commit()
 
-    def get_comment(id):
-        comment= Comment.query.filter_by(id=id).all()
-        return comment
+   
 
     def __repr__(self):
         return f'{self.comment}'
@@ -104,7 +107,7 @@ class Quotes:
 
 class Subscriber(db.Model):
   __tablename__='subscribers'
-  
+
   id=db.Column(db.Integer,primary_key=True)
   email = db.Column(db.String(255),unique=True,index=True)
 
