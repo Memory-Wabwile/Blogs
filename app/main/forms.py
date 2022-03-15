@@ -25,3 +25,7 @@ class BlogForm(FlaskForm):
     blog = TextAreaField('Your Blog', validators=[DataRequired()])
     
     submit = SubmitField('Submit')
+
+class SubscribeForm(FlaskForm):
+    email = StringField('Your Email', validators=[DataRequired()])
+    submit = SubmitField('Submit')

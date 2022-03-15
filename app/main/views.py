@@ -1,13 +1,15 @@
 from flask import render_template,request,redirect,url_for,abort
+from app.email import mail_message
 from ..models import User
-from ..models import User, Blogs,Comment
+from ..models import User, Blogs,Comment, Subscriber
 from . import main
 from flask_login import current_user, login_required 
 from .forms import UpdateProfile
 from .. import db,photos
-from .forms import PostForm,CommentForm,UpdateProfile,BlogForm
+from .forms import PostForm,CommentForm,UpdateProfile,BlogForm,SubscribeForm
 from flask.helpers import flash
 from ..requests import get_quote
+
 
 
 
@@ -150,4 +152,17 @@ def delete_comment(id):
     return redirect(url_for('.comment',id = blog.id))
 
 
- 
+@main.route('/subscribe',methods = ['POST','GET'])
+def subscribe():
+
+    form = SubscribeForm
+
+    if form.validate_on_submit():
+        email = request.form.get('subscriber')
+        new_subscriber = Subscriber(email = email)
+        new_subscriber.save_subscriber()
+        mail_message("Subscribed to Personal Blogs","email/welcome_subscriber",new_subscriber.email,new_subscriber=new_subscriber)
+        flash('You have successfully subscribed to blogs')
+        return redirect(url_for('main.index'))
+    
+    
