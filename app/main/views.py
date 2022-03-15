@@ -112,6 +112,7 @@ def comment(blog_id):
 
     form = CommentForm()
 
+    blogs = Blogs.query.filter_by(id = blog_id).first()
     
     if form.validate_on_submit():
         comment = form.comment.data
@@ -124,11 +125,11 @@ def comment(blog_id):
         flash('Comment added successfully')
         return redirect(url_for('.comment', blog_id = blog_id))
     
-    blog = Blogs.query.get(blog_id)
+    # blog = Blogs.query.get(blog_id)
     user = User.query.all()
     comments = Comment.query.all()
 
-    return render_template('comment.html', form=form,comments=comments,blog=blog,user=user)
+    return render_template('comment.html', form=form,comments=comments,blog=blog_id,user=user)
         
 @main.route('/blog/<blog_id>/delete', methods = ['POST'])
 @login_required
@@ -139,13 +140,14 @@ def delete_post(blog_id):
     blog.delete()
     return redirect(url_for('main.index'))
 
-@main.route("/blog/<int:id>/<int:comment_id>/delete")
+@main.route("/delete/<int:id>", methods = ['GET','POST'])
 @login_required
-def delete_comment(id, comment_id):
+def delete_comment(id):
     blog = Blogs.query.filter_by(id = id).first()
-    comment = Comment.query.filter_by(id = comment_id).first()
+    comment = Comment.query.filter_by(id = id).first()
     db.session.delete(comment)
     db.session.commit()
-    return redirect(url_for('main.blog',id = blog.id))
+    return redirect(url_for('.comment',id = blog.id))
 
 
+ 
