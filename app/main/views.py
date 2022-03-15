@@ -160,7 +160,7 @@ def subscribe():
 
 
     if form.validate_on_submit():
-        email = request.form.get('subscriber')
+        email = request.form.get('email')
         new_subscriber = Subscriber(email = email)
         new_subscriber.save_subscriber()
         mail_message(" You have Successfully subscribed to the blogs app ! welcome 😇 ","email/welcome_user" , new_subscriber.email,new_subscriber=new_subscriber)

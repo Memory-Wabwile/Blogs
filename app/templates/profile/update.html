@@ -2,7 +2,24 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block content %}
-<div class="container">
-  {{wtf.quick_form(form)}}
+<div class="container-fluid">
+  <div class="pop">
+    <div
+      style="width: 75%; margin-top:6% ; padding:5% 5% 5% 5%; font-size: 25px; margin-left: 15%; text-align: center; border: 3px solid gray ;box-shadow: 10px 10px 15px gray; background-color: gainsboro; "
+      class="card">
+      {{wtf.quick_form(form)}}
+    </div>
+  </div>
 </div>
+
+<style>
+  body {
+    background-image: url("../static/photos/bluebackground.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    opacity: 0.9;
+  }
+</style>
 {% endblock %}

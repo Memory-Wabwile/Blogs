@@ -1,7 +1,7 @@
 {%extends 'base.html'%}
 
 {% block content %}
-<div class="container">
+<div style="color: white;" class="container">
     <div>
         <!-- displaying  Username-->
         <div style="font-size: 1.5em; text-align: center; margin-bottom: 5%;" class="col-md-12">
@@ -19,7 +19,7 @@
         <div style="font-size: 1.5em;" class="row">
             <div class="col-md-4">
                 {% if user == current_user %}
-                <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
+                <a  style="color: white; text-decoration: underline;" href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
                 {% endif %}
             </div>
 
@@ -35,7 +35,7 @@
                     <input style="padding-top: 3%; padding-bottom:3%;margin-bottom: 4%;" type="file" name="photo"
                         class="form-control" required>
                     <input
-                        style="background-color: fuchsia; font-size: 20px;  border:none; border-radius: 25px; margin-bottom: 5%; padding: 5px 10px;"
+                        style="background-color: white; color: blue; font-size: 20px;  border:none; border-radius: 25px; margin-bottom: 5%; padding: 5px 10px;"
                         type="submit">
                 </form>
                 {% endif %}
@@ -65,4 +65,18 @@
         </div>
     </div>
 </div>
+
+<style>
+    body {
+        background-image: url(../static/photos/bluebackground.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 110vh ;
+        opacity: 0.9;
+    }
+
+
+</style>
+
 {% endblock %}
