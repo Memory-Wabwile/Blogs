@@ -25,7 +25,13 @@ Blogs is an application where writers can create blogs and users can view this b
 Currently there are no known bugs
 
 ## Dependancies
-pyhton3.9 
+pyhton3.9 <br>
+Flask Bootstrap<br>
+Flask WTF<br>
+Flask Login<br>
+Flask Uploads<br>
+Python Venv<br>
+Flask Mail<br>
 
 ## Setup instructions
 
