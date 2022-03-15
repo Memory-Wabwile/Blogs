@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf%}
+
+{% block content %}
+<div style=" height: 95vh; margin-top: -3%;" class="container-fluid">
+    <div>
+
+        <div style="width: 75%; margin-top:6% ; padding:5% 5% 5% 5%; font-size: 25px; margin-left: 15%; text-align: center; border: 3px solid gray ;box-shadow: 10px 10px 15px gray; background-color: gainsboro;"
+            class="card" >
+            <h2 class="text-center">SUBSCRIBE TO BLOGS</h2>
+            {{wtf.quick_form(form)}}
+        </div>
+
+
+    </div>
+</div>
+{% endblock%}

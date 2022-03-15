@@ -11,10 +11,10 @@ url_for('static', filename='photos/bluebackground.jpg')
 
 {% block content %}
 <div class="main">
-    <h1 style="text-align: center; font-weight: bolder; ">BLOGS</h1>
+    <h1 style="text-align: center; font-weight: bolder; color: white; ">BLOGS</h1>
     <hr>
 
-    <div style="text-align: center; ">
+    <div style="text-align: center; color: white; ">
 
         <div class="title">
             <h2>Quote of the day</h2>
@@ -33,5 +33,18 @@ url_for('static', filename='photos/bluebackground.jpg')
 </div>
 
 {% include 'footer.html' %}
+
+<style>
+    body {
+        background-image: url(../static/photos/bluebackground.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: auto;
+        opacity: 0.9;
+    }
+
+
+</style>
 
 {% endblock %}

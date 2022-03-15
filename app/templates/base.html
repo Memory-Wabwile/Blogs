@@ -25,18 +25,19 @@
 </head>
 
 <body>
-    <div class="bg-black">
-        <!-- Navbar block  -->
-        {% block navbar %}
-        {% include 'navbar.html' %}
-        {% endblock %}
-        <!-- Content block -->
+    <div class="opacity">
+        <div class="bg-black">
+            <!-- Navbar block  -->
+            {% block navbar %}
+            {% include 'navbar.html' %}
+            {% endblock %}
+            <!-- Content block -->
+        </div>
+        {% block content %}
+
+        {% endblock%}
+
     </div>
-    {% block content %}
-
-    {% endblock%}
-
-
 </body>
 
 </html>
