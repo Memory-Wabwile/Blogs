@@ -1,4 +1,4 @@
-## Password-Locker
+## Blogs
 
 ## Author
 Memory Wabwile<br>
@@ -7,6 +7,8 @@ https://github.com/Memory-Wabwile
 ## Description
 Blogs is an application where writers can create blogs and users can view this blogs and comment on them.
 
+## Live Site
+click on https://memblogs.herokuapp.com/ to view the site
 ## BDD
 1. A user is able to view the blog posts on the site
 2. A user is able to comment on blog posts
@@ -39,7 +41,7 @@ Install python 3.9
 <strong>To clone</strong>
 <li>
 <ul>Open the terminal</ul>
-<ul> git clone https://github.com/Memory-Wabwile/Password-Locker</ul>
+<ul> git clone https://github.com/Memory-Wabwile/Blogs</ul>
 <ul>cd into the password locker folder</ul>
 <ul>type code . (on vs code) or atom . (on atom) to open the folder</ul>
 </li>
